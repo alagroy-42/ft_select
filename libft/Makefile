@@ -6,7 +6,7 @@
 #    By: alagroy- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 15:29:46 by alagroy-          #+#    #+#              #
-#    Updated: 2019/04/14 20:22:17 by alagroy-         ###   ########.fr        #
+#    Updated: 2019/04/19 17:13:50 by alagroy-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ clean:
 	
 fclean: clean
 	@rm -f $(NAME)
-	@printf "\033[0;31D[Libft] Deleted libft.a\n"
+	@printf "\033[0;31m[Libft] Deleted libft.a\n"
 
 re: clean all
 

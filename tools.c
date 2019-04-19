@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 19:40:33 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/14 20:55:25 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/19 17:02:48 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ t_select	*ft_init_select(int ac, char **av)
 		return (NULL);
 	tcgetattr(0, &(select->term));
 	tcgetattr(0, &(select->old_conf));
+	select->term.c_lflag &= ~(ICANON);
+	select->term.c_lflag &= ~(ECHO);
+	select->term.c_cc[VMIN] = 1;
+	select->term.c_cc[VTIME] = 0;
+	if (tcsetattr(0, TCSADRAIN, &select->term) == -1)
+		return (NULL);
 	select->size_lst = ac;
 	select->args = ft_make_argslst(ac, av);
 	select->read = NULL;
