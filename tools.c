@@ -6,32 +6,62 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 19:40:33 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/19 17:02:48 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/24 16:09:26 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
+void			ft_return(t_list *elem)
+{
+	if (((t_elem *)elem->content)->set)
+	{
+		ft_putstr(((t_elem *)elem->content)->name);
+		ft_putchar(' ');
+	}
+}
+
+void			resize(int sig)
+{
+	struct winsize	ws;
+
+	if (sig == SIGWINCH)
+	{
+		if (!(ioctl(0, TIOCGWINSZ, &ws)))
+		{
+			g_select->co = ws.ws_col;
+			g_select->li = ws.ws_row;
+			ft_display(g_select);
+		}
+	}
+}
+
 static t_list	*ft_make_argslst(int ac, char **av)
 {
-    t_list  *new;
-    t_list  *begin;
-    int     i;
+	t_list	*new;
+	t_list	*begin;
+	t_elem	*elem;
+	int		i;
 
-    i = 0;
-    begin = NULL;
-    while (++i < ac)
-    {
-        new = ft_lstnew(ft_strdup(av[i]), sizeof(char *));
-        if (new && !begin)
-            begin = new;
-        else if (new)
-            ft_lstend(&begin, new);
-    }
+	i = 0;
+	begin = NULL;
+	while (++i < ac)
+	{
+		if (!(elem = (t_elem *)malloc(sizeof(t_elem))))
+			return (NULL);
+		elem->name = ft_strdup(av[i]);
+		elem->on = 0;
+		elem->set = 0;
+		new = ft_lstnew(elem, sizeof(t_elem));
+		if (new && !begin)
+			begin = new;
+		else if (new)
+			ft_lstend(&begin, new);
+	}
 	return (begin);
 }
 
-t_select	*ft_init_select(int ac, char **av)
+t_select		*ft_init_select(int ac, char **av)
 {
 	t_select	*select;
 	char		*name_term;
@@ -53,5 +83,8 @@ t_select	*ft_init_select(int ac, char **av)
 	select->size_lst = ac;
 	select->args = ft_make_argslst(ac, av);
 	select->read = NULL;
+	select->co = tgetnum("co");
+	select->li = tgetnum("li");
+	((t_elem *)select->args->content)->on = 1;
 	return (select);
 }

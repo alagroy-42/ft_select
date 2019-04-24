@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_2da.c                                      :+:      :+:    :+:   */
+/*   ft_strreplace.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/12 12:19:27 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/12 09:21:56 by alagroy-         ###   ########.fr       */
+/*   Created: 2019/04/17 16:27:14 by alagroy-          #+#    #+#             */
+/*   Updated: 2019/04/17 16:29:46 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_free_2dstr(char **array)
+char	*ft_strreplace(char *str, char find, char replace)
 {
 	int	i;
 
-	if (!array)
-		return ;
 	i = -1;
-	while (array[++i])
-		free(array[i]);
-	free(array);
+	while (str[++i])
+		if (str[i] == find)
+			str[i] = replace;
+	return (str);
 }

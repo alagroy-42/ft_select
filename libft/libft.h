@@ -6,7 +6,7 @@
 /*   By: alagroy- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 14:14:32 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/03/12 14:17:47 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/17 16:29:05 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include "ft_printf.h"
-# define BUFF_SIZE 32
+# define BUFF_SIZE 1
 
 typedef struct	s_list
 {
@@ -93,7 +93,9 @@ size_t			ft_lstsize(t_list *begin);
 void			ft_lstend(t_list **alst, t_list *new);
 void			ft_lstmid(t_list *alst, t_list *new, size_t index);
 int				get_next_line(const int fd, char **line);
-void			ft_free_2da(int **array, int size);
 void			ft_free_2dstr(char **array);
+void			ft_print_2da(char **array);
+void			ft_str2ddel(char **tab, int index);
+char			*ft_strreplace(char *str, char find, char replace);
 
 #endif

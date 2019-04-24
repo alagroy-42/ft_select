@@ -6,7 +6,7 @@
 /*   By: alagroy- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 17:07:46 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/03/12 14:48:05 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/15 13:52:33 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ char		**ft_strsplit(const char *s, char c)
 	int		i;
 
 	i = 0;
-	if (!s || !c)
+	if (!s || !c || !s[0])
 		return (NULL);
 	nb_words = (s[0] == c) ? 0 : 1;
 	while (s[++i])
-		if (s[i] != c && s[i - 1] == c)
+		if (s[i - 1] && s[i] && s[i] != c && s[i - 1] == c)
 			nb_words++;
 	if (s[0] == '\0')
 		nb_words = 0;

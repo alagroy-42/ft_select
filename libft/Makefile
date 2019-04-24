@@ -6,7 +6,7 @@
 #    By: alagroy- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 15:29:46 by alagroy-          #+#    #+#              #
-#    Updated: 2019/04/19 17:13:50 by alagroy-         ###   ########.fr        #
+#    Updated: 2019/04/17 16:29:22 by alagroy-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRCS = ft_strcat.c ft_strchr.c ft_strcmp.c ft_strcpy.c ft_strdup.c \
 	   ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_strrev.c ft_strlowcase.c \
 	   ft_strupcase.c ft_strndup.c ft_lstsize.c ft_lstend.c ft_lstmid.c \
 	   get_next_line.c aux.c edit_string.c fill_content.c flags.c ft_printf.c \
-	   itoa.c precision_min_size.c tools.c ft_free_2da.c
+	   itoa.c precision_min_size.c tools.c ft_free_2da.c ft_print_2da.c \
+	   ft_str2ddel.c ft_strreplace.c
 
 OBJ = $(SRCS:.c=.o)
 
@@ -38,7 +39,7 @@ all: $(NAME)
 
 %.o: %.c
 	@printf "\033[0;32m[Libft] Compilation [o.]\r"
-	@$(CC) $(CFLAGS) -I /usr/includes -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 	@printf "\033[0;32m[Libft] Compilation [o.]\r"
 
 $(NAME): $(OBJ)
@@ -53,7 +54,7 @@ clean:
 	
 fclean: clean
 	@rm -f $(NAME)
-	@printf "\033[0;31m[Libft] Deleted libft.a\n"
+	@printf "\033[0;31D[Libft] Deleted libft.a\n"
 
 re: clean all
 
