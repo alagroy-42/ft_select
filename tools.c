@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 19:40:33 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/25 14:43:53 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/25 14:57:58 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ static t_list	*ft_make_argslst(int ac, char **av)
 		elem->on = 0;
 		elem->set = 0;
 		new = ft_lstnew(elem, sizeof(t_elem));
+		free(elem);
 		if (new && !begin)
 			begin = new;
 		else if (new)
