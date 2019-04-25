@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 19:21:12 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/24 16:26:25 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/25 14:38:03 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <curses.h>
 # include <signal.h>
 # include <sys/ioctl.h>
+# include <fcntl.h>
 
 typedef struct termios	t_termios;
 
@@ -36,8 +37,10 @@ typedef struct			s_select
 	t_list		*args;
 	char		*read;
 	int			size_lst;
+	int			bigger_word;
 	int			co;
 	int			li;
+	int			fd;
 }						t_select;
 
 t_select				*g_select;
@@ -52,5 +55,7 @@ void					ft_set(t_select *select);
 void					ft_return(t_list *elem);
 void					ft_del(t_select *select);
 void					ft_delelem(void *elem, size_t size);
+int						check_input(void);
+void					find_max_len(t_select *select);
 
 #endif

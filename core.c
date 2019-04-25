@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 09:56:19 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/24 18:02:58 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/25 14:33:06 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void		ft_core(t_select *select)
 	int		ret;
 
 	ft_display(select);
-	while ((ret = read(0, buf, 3)) && ret != -1 && select->args)
+	while (select->size_lst && (ret = read(0, buf, 3)) && ret != -1)
 	{
 		buf[ret] = '\0';
 		if (buf[0] == '\n')

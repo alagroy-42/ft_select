@@ -6,13 +6,13 @@
 #    By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/24 09:41:35 by alagroy-          #+#    #+#              #
-#    Updated: 2019/04/24 13:50:52 by alagroy-         ###   ########.fr        #
+#    Updated: 2019/04/25 14:19:30 by alagroy-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_select
 
-SRCS = main.c tools.c core.c lst_tools.c
+SRCS = main.c tools.c core.c lst_tools.c signal.c display.c
 
 OBJ = $(SRCS:.c=.o)
 

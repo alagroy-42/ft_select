@@ -1,1 +1,1 @@
-               
+Makefile core.c core.o ft_select ft_select.dSYM ft_select.h includes libft libft.a lst_tools.c lst_tools.o main.c main.o tools.c tools.o

@@ -6,11 +6,38 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 19:40:33 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/24 16:09:26 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/25 14:43:53 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
+
+void			find_max_len(t_select *select)
+{
+	t_list	*tmp;
+	int		len;
+
+	tmp = select->args;
+	select->bigger_word = 0;
+	while (tmp)
+	{
+		len = ft_strlen(((t_elem *)tmp->content)->name);
+		if (len > select->bigger_word)
+			select->bigger_word = len;
+		tmp = tmp->next;
+	}
+}
+
+int				check_input(void)
+{
+	int		fd;
+
+	if (!isatty(0))
+		return (-1);
+	if ((fd = open(ttyname(0), O_RDWR)) == -1)
+		return (-1);
+	return (fd);
+}
 
 void			ft_return(t_list *elem)
 {
@@ -18,21 +45,6 @@ void			ft_return(t_list *elem)
 	{
 		ft_putstr(((t_elem *)elem->content)->name);
 		ft_putchar(' ');
-	}
-}
-
-void			resize(int sig)
-{
-	struct winsize	ws;
-
-	if (sig == SIGWINCH)
-	{
-		if (!(ioctl(0, TIOCGWINSZ, &ws)))
-		{
-			g_select->co = ws.ws_col;
-			g_select->li = ws.ws_row;
-			ft_display(g_select);
-		}
 	}
 }
 
@@ -80,11 +92,12 @@ t_select		*ft_init_select(int ac, char **av)
 	select->term.c_cc[VTIME] = 0;
 	if (tcsetattr(0, TCSADRAIN, &select->term) == -1)
 		return (NULL);
-	select->size_lst = ac;
+	select->size_lst = ac - 1;
 	select->args = ft_make_argslst(ac, av);
 	select->read = NULL;
 	select->co = tgetnum("co");
 	select->li = tgetnum("li");
 	((t_elem *)select->args->content)->on = 1;
+	find_max_len(select);
 	return (select);
 }

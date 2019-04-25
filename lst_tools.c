@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 13:29:53 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/24 18:02:59 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/25 14:31:34 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	ft_del(t_select *select)
 	t_list	*tmp2;
 
 	tmp = select->args;
-	if (((t_elem *)tmp->content)->on)
+	select->size_lst--;
+	if (tmp && ((t_elem *)tmp->content)->on)
 	{
 		tmp->next ? ((t_elem *)tmp->next->content)->on = 1 : 0;
 		select->args = tmp->next;
@@ -44,7 +45,6 @@ void	ft_del(t_select *select)
 			tmp2 = tmp->next;
 			tmp->next = tmp->next->next;
 			ft_lstdelone(&tmp2, &ft_delelem);
-			return ;
 		}
 		tmp = tmp->next;
 	}
