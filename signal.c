@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 13:26:56 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/25 14:27:38 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/26 15:45:00 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ void	resize(int sig)
 		ioctl(g_select->fd, TIOCGWINSZ, &ws);
 		g_select->co = ws.ws_col;
 		g_select->li = ws.ws_row;
+		ft_display(g_select);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 19:21:12 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/25 14:38:03 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/26 15:35:37 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void					ft_del(t_select *select);
 void					ft_delelem(void *elem, size_t size);
 int						check_input(void);
 void					find_max_len(t_select *select);
+void					ft_display_col(t_select *select);
 
 #endif

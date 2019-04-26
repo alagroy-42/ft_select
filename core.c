@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 09:56:19 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/25 14:33:06 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/26 15:39:30 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void		ft_display(t_select *select)
 	if ((cl = tgetstr("cl", NULL)))
 		tputs(cl, 0, ft_putc);
 	i = 0;
+	if (select->li < select->size_lst)
+		return (ft_display_col(select));
 	while (tmp)
 	{
 		if ((cl = tgetstr("cm", NULL)))

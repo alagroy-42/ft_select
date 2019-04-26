@@ -6,7 +6,7 @@
 #    By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/24 09:41:35 by alagroy-          #+#    #+#              #
-#    Updated: 2019/04/25 14:19:30 by alagroy-         ###   ########.fr        #
+#    Updated: 2019/04/26 16:01:47 by alagroy-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,8 @@ debug:
 $(NAME): $(OBJ)
 	@printf "\033[0;32m[ft_select] Compilation [OK]\n"
 	@make -C libft
-	@mv libft/libft.a .
 	@printf "\033[0;32m[ft_select] Linking [.o]\r"
-	@$(CC) $(CFLAGS) -L . -ltermcap -lft $(OBJ) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) -L libft -lft -ltermcap -o $(NAME)
 	@printf "\033[0;32m[ft_select] Linking [OK]\n"
 
 clean:
@@ -49,7 +48,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -f libft.a
+	@rm -f libft/libft.a
 	@printf "\033[0;31m[ft_select] Fclean [OK]\n"
 
 re: fclean all

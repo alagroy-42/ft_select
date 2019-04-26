@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 13:29:53 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/25 14:56:35 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/26 12:47:31 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_delelem(void *content, size_t size)
 {
+	(void)size;
 	free(((t_elem *)content)->name);
 	((t_elem *)content)->name = NULL;
 	free(content);
 	content = NULL;
-	size = 0;
 }
 
 void	ft_del(t_select *select)
