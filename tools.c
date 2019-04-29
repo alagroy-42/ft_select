@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 19:40:33 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/25 14:57:58 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/29 13:42:27 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,6 @@ t_select		*ft_init_select(int ac, char **av)
 	select->li = tgetnum("li");
 	((t_elem *)select->args->content)->on = 1;
 	find_max_len(select);
+	ft_lstmapindex(select);
 	return (select);
 }

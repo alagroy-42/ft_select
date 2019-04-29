@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 13:29:53 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/26 12:47:31 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/29 13:44:02 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	ft_del(t_select *select)
 	t_list	*tmp2;
 
 	tmp = select->args;
-	select->size_lst--;
 	if (tmp && ((t_elem *)tmp->content)->on)
 	{
 		tmp->next ? ((t_elem *)tmp->next->content)->on = 1 : 0;
@@ -48,6 +47,7 @@ void	ft_del(t_select *select)
 		}
 		tmp = tmp->next;
 	}
+	ft_lstmapindex(select);
 }
 
 void	ft_move(t_select *select)
@@ -92,4 +92,20 @@ void	ft_set(t_select *select)
 		}
 		tmp = tmp->next;
 	}
+}
+
+void	ft_lstmapindex(t_select *select)
+{
+	int		i;
+	t_list	*tmp;
+
+	i = 0;
+	tmp = select->args;
+	while (tmp)
+	{
+		tmp->content_size = i;
+		i++;
+		tmp = tmp->next;
+	}
+	select->size_lst = i;
 }
