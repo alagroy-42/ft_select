@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 19:21:12 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/29 13:42:48 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/29 16:05:54 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ int						check_input(void);
 void					find_max_len(t_select *select);
 void					ft_display_col(t_select *select);
 void					ft_lstmapindex(t_select *args);
+char					*find_color(t_list *elem);
 
 #endif

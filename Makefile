@@ -6,7 +6,7 @@
 #    By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/24 09:41:35 by alagroy-          #+#    #+#              #
-#    Updated: 2019/04/26 16:01:47 by alagroy-         ###   ########.fr        #
+#    Updated: 2019/04/29 16:07:17 by alagroy-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ DFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address -I $(INCLUDES)
 all: $(NAME)
 
 debug:
-	$(CC) $(DFLAGS) libft/*.c -ltermcap $(SRCS) -o $(NAME)
+	$(CC) $(DFLAGS) libft/*.c $(SRCS) -ltermcap -o $(NAME)
 
 $(NAME): $(OBJ)
 	@printf "\033[0;32m[ft_select] Compilation [OK]\n"

@@ -6,13 +6,13 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 09:56:19 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/29 12:10:26 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/04/30 14:03:26 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-static char	*find_color(t_list *elem)
+char		*find_color(t_list *elem)
 {
 	if (((t_elem *)elem->content)->set && ((t_elem *)elem->content)->on)
 		return ("\033[30;47;4m");
