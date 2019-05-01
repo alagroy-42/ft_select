@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 14:19:06 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/30 12:44:40 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/05/01 20:44:59 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void		ft_display_col(t_select *select)
 	char	*cm;
 	t_list	*tmp;
 
-	if (select->co < (select->bigger_word + 6) * (select->size_lst / select->li
-				+ 1))
+	if (select->co < ((select->bigger_word + 6) * (select->size_lst / (select->li - 1)) + (select->bigger_word)))
 	{
 		ft_dprintf(0, "ERROR: Resize the window please !");
 		return ;

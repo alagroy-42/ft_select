@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 09:56:19 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/30 14:03:26 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/05/01 20:49:09 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void		ft_core(t_select *select)
 		buf[ret] = '\0';
 		if (buf[0] == '\n')
 			return (ft_lstiter(select->args, &ft_return));
-		else if (buf[0] == '\t')
-			ft_move(select);
+		else if (buf[0] == 27 && buf[1] == 91 && buf[2])
+			ft_arrow(select, buf[2]);
 		else if (buf[0] == ' ')
 			ft_set(select);
 		else if (buf[0] == 27 && ret == 1)
