@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 19:21:12 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/05/01 12:13:50 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/05/04 12:30:47 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,8 @@ void					ft_display_col(t_select *select);
 void					ft_lstmapindex(t_select *args);
 char					*find_color(t_list *elem);
 void					ft_arrow(t_select *select, char key);
+void					ft_quit(int sig);
+void					ft_cont(int sig);
+void					init_signal(void);
 
 #endif

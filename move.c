@@ -6,7 +6,7 @@
 /*   By: alagroy- <alagroy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 11:26:37 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/05/01 20:10:27 by alagroy-         ###   ########.fr       */
+/*   Updated: 2019/05/04 12:12:00 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,11 @@ void		ft_arrow(t_select *select, char key)
 
 	index = ft_get_index_on(select);
 	if (key == 'A')
-		index > 0 ? ft_select_nthelem(select, index - 1) : ft_bl();
+		index > 0 ? ft_select_nthelem(select, index - 1)
+			: ft_select_nthelem(select, select->size_lst - 1);
 	else if (key == 'B')
 		index + 1 < select->size_lst ? ft_select_nthelem(select, index + 1)
-			: ft_bl();
+			: ft_select_nthelem(select, 0);
 	else if (key == 'C')
 		index + select->li - 1 < select->size_lst ? ft_select_nthelem(select,
 				index + select->li - 1) : ft_bl();
