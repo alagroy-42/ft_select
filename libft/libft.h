@@ -6,7 +6,7 @@
 /*   By: alagroy- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 14:14:32 by alagroy-          #+#    #+#             */
-/*   Updated: 2019/04/17 16:29:05 by alagroy-         ###   ########.fr       */
+/*   Updated: 2020/09/02 12:16:19 by alagroy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <limits.h>
 # include "ft_printf.h"
 # define BUFF_SIZE 1
+# ifndef OPEN_MAX
+#  define OPEN_MAX 1046
+# endif
 
 typedef struct	s_list
 {
