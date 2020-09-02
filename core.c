@@ -47,7 +47,7 @@ void		ft_display(t_select *select)
 	}
 }
 
-void		ft_core(t_select *select)
+void		*ft_core(t_select *select)
 {
 	char	buf[4];
 	int		ret;
@@ -57,15 +57,16 @@ void		ft_core(t_select *select)
 	{
 		buf[ret] = '\0';
 		if (buf[0] == '\n')
-			return (ft_lstiter(select->args, &ft_return));
+			return (select->args);
 		else if (buf[0] == 27 && buf[1] == 91 && buf[2])
 			ft_arrow(select, buf[2]);
 		else if (buf[0] == ' ')
 			ft_set(select);
 		else if (buf[0] == 27 && ret == 1)
-			return ;
+			return (NULL);
 		else if (buf[0] == 126 || buf[0] == 127)
 			ft_del(select);
 		ft_display(select);
 	}
+	return (NULL);
 }

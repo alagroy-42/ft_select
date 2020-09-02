@@ -46,7 +46,7 @@ typedef struct			s_select
 t_select				*g_select;
 
 t_select				*ft_init_select(int ac, char **av);
-void					ft_core(t_select *select);
+void					*ft_core(t_select *select);
 int						ft_putc(int c);
 void					resize(int sig);
 void					ft_display(t_select *select);
@@ -64,5 +64,6 @@ void					ft_arrow(t_select *select, char key);
 void					ft_quit(int sig);
 void					ft_cont(int sig);
 void					init_signal(void);
+void					tgetputstr(char *cap);
 
 #endif
