@@ -12,6 +12,8 @@
 
 #include "ft_select.h"
 
+t_select	*g_select;
+
 int		ft_putc(int c)
 {
 	write(0, &c, 1);

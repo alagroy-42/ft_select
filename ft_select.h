@@ -43,7 +43,7 @@ typedef struct			s_select
 	int			fd;
 }						t_select;
 
-t_select				*g_select;
+extern t_select				*g_select;
 
 t_select				*ft_init_select(int ac, char **av);
 void					*ft_core(t_select *select);
